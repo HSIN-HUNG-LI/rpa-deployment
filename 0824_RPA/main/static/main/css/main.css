@@ -1,0 +1,337 @@
+.mycontent {
+    padding-top: 100px;
+    border: 10px solid blue;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+	background-color: rgb(128,128,128, 0.02);
+	/* background-color:rgb(128,128,128,0.15); */
+    /* below is Beige */
+    /* background-color: rgb(255, 245, 238, 0.3); */
+    /* background-color: white; */
+	/* background-color:black; */
+    /* margin: 0; */
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    color: black;
+}
+
+select {
+    font-family: 'Noto Serif TC', serif;
+    margin: .8em 0;
+    line-height: 2.1;
+    text-align: justify;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-family: 'Noto Serif TC', serif;
+    /* font-size: 1.3rem; */
+}
+
+a {
+    font-family: 'Noto Serif TC', serif;
+}
+
+label {
+    font-family: 'Noto Serif TC', serif;
+}
+
+span {
+    font-family: 'Noto Serif TC', serif;
+}
+
+input {
+    font-family: 'Noto Serif TC', serif;
+}
+
+textarea {
+    font-family: 'Noto Serif TC', serif;
+}
+
+/* this is for info box */
+#background_1 {
+    background-color: rgb(255, 245, 238, 0.3);
+    /* below is Grey */
+    /* background-color: rgb(128,128,128, 0.5); */
+}
+
+#background_2 {
+    /* below is Beige */
+    /* background-color: rgb(255, 245, 238, 0.3); */
+    /* background-color: rgb(128,128,128, 0.03); */
+    /* background-color: white; */
+	/* background-color:black; */
+}
+
+#dose_list {
+    style="width:100px;text-align:right;"
+}
+
+#list_1 {
+    font-family: 'Noto Serif TC', serif;
+    margin: 0 0;
+}
+
+#tooltip {
+    font-family: 'Noto Serif TC', serif;
+    margin: 0 0;
+    color: #5B2D05;
+    line-height: 2.1;
+}
+
+#card_body_1 {
+    padding: 0.5em;
+}
+
+#ch_font {
+    font-family: 'Noto Serif TC', serif;
+}
+
+#chlang {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.7rem;
+}
+
+#ch_read {
+    font-family: 'Noto Serif TC', serif;
+    line-height: 2.1;
+    text-align: justify;
+    margin: .8em 0;
+}
+
+#ch_text {
+    font-family: 'Noto Serif TC', serif;
+    line-height: 2.1;
+    text-align: justify;
+    margin: 1.2em 0.6em;
+}
+
+#intro_text {
+    line-height: 2em;
+    font-family: 'Roboto', sans-serif;
+    margin: 10px;
+    font-size: 1.3rem;
+}
+
+#sub {
+    border-radius: 10%;
+    /* background: #F0F8FF; */
+    /* height: 80px;
+  width: 150px; */
+    font-weight: bold;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.2em;
+    margin-bottom: 2px;
+    width: 100%;
+}
+
+#re_tool {
+    font-family: 'Noto Serif TC', serif;
+    color: #330000;
+    font-size: 130%;
+    width: 100%
+}
+
+#header_2 {
+    /* font-weight: bold; */
+    /* font-family: 'Cinzel', serif; */
+    font-family: 'Noto Serif TC', serif;
+    color: #330e0e;
+    font-size: 200%;
+    text-align: justify;
+    border-bottom: 2px solid rgb(0, 0, 0, .2);
+    line-height: 2.1;
+    align-items: center;
+    text-align: center
+}
+
+#header_tool {
+    font-family: 'Noto Serif TC', serif;
+    color: #5B2D05;
+    font-size: 150%;
+    /* text-align: center; */
+    line-height: 1.5em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#header_1 {
+    /* font-weight: bold; */
+    /* font-family: 'Cinzel', serif; */
+    font-family: 'Noto Serif TC', serif;
+    color: #5B2D05;
+    font-size: 150%;
+    /* text-align: center; */
+    line-height: 1.5em;
+}
+
+#text_1 {
+    font-family: 'Noto Serif TC', serif;
+    line-height: 2em;
+}
+
+
+#text_0 {
+    font-family: 'Noto Serif TC', serif;
+    margin: 1.2em 2em;
+    line-height: 2.1;
+    text-align: justify;
+    border-bottom: 2px solid rgb(0, 0, 0, .2);
+}
+
+#modal_header {
+    font-family: 'Noto Serif TC', serif;
+    color: #5B2D05;
+    line-height: 2.1;
+}
+
+#modal_1 {
+    font-family: 'Noto Serif TC', serif;
+    line-height: 2.1;
+    text-align: justify;
+}
+
+#tool_option {
+    width: 15px;
+    height: 20px;
+    line-height: 24px;
+    vertical-align: top;
+    margin: 2px 0;
+    overflow: hidden;
+}
+.jumbotron {
+	background-color: rgb(128,128,128, 0.00);
+}
+.container {
+
+	background-color: rgb(128,128,128, 0.00);
+	/* margin: 0 0 0 0 ; */
+}
+.card-header {}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    padding: 0.1em;
+}
+
+.input-group-text {
+    font-family: 'Noto Serif TC', serif;
+    color: #330000;
+    font-size: 130%;
+}
+
+.custom-select {
+    font-family: 'Noto Serif TC', serif;
+    margin: .0em 0;
+    line-height: 2.1;
+    text-align: justify;
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding: 0.18em;
+    line-height: 1em;
+    color: #495057;
+    /* background-size: 8px 10px; */
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    appearance: none;
+}
+
+.printModal {
+    font-family: sans-serif;
+    display: flex;
+    text-align: center;
+    font-weight: 300;
+    font-size: 30px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    color: #045fb4;
+    width: 100%;
+    height: 100%;
+    background-color: hsla(0, 0%, 100%, .9)
+}
+
+.printClose {
+    position: absolute;
+    right: 10px;
+    top: 10px
+}
+
+.printClose:before {
+    content: "\00D7";
+    font-family: Helvetica Neue, sans-serif;
+    font-weight: 100;
+    line-height: 1px;
+    padding-top: .5em;
+    display: block;
+    font-size: 2em;
+    text-indent: 1px;
+    overflow: hidden;
+    height: 1.25em;
+    width: 1.25em;
+    text-align: center;
+    cursor: pointer
+}
+
+.printSpinner {
+    margin-top: 3px;
+    margin-left: -40px;
+    position: absolute;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #045fb4;
+    border-radius: 50%;
+    animation: spin .75s linear infinite
+}
+
+.printSpinner:after, .printSpinner:before {
+    left: -2px;
+    top: -2px;
+    display: none;
+    position: absolute;
+    content: "";
+    width: inherit;
+    height: inherit;
+    border: inherit;
+    border-radius: inherit
+}
+
+.printSpinner, .printSpinner:after, .printSpinner:before {
+    display: inline-block;
+    border-color: #045fb4 transparent transparent;
+    animation-duration: 1.2s
+}
+
+.printSpinner:before {
+    transform: rotate(120deg)
+}
+
+.printSpinner:after {
+    transform: rotate(240deg)
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(1turn)
+    }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+{% extends "main/base.html" %}
+{% load static %}
+{% block body_block%}
+
+<div class="jumbotron" id="printJS">
+	<div class="card">
+		<div id="orth_header_1" class="card-header">
+			<div class="" style="border-bottom: 2px solid rgb(0, 0, 0, .2); ">
+				<h3 class="row justify-content-md-center" style="text-align:center"> <strong>醫療劑量計算結果 (毫西弗，mSv)
+					</strong> </h5>
+			</div>
+		</div>
+		<div class="card-body">
+			<!-- <h5 class="card-title">Special title treatment</h5> -->
+			<div class="row">
+				<div class="col col-12">
+					<div class="row">
+						<div class="col col-6 mt-4">
+							<table id="re_tool" class="table table-bordered border-primary">
+								<tbody>
+									<tr>
+										<td colspan="1">一般傳統X光 : </td>
+										<td style="width:100px;text-align:right;">{{ 6th }}</td>
+									</tr>
+									<tr>
+										<td>乳房攝影 : </td>
+										<td style="width:100px;text-align:right;">{{ 7th }}</td>
+									</tr>
+									<tr>
+										<td>牙科攝影 : </td>
+										<td style="width:100px;text-align:right;">{{ 8th }}</td>
+									</tr>
+									<tr>
+										<td>傳統透視攝影 : </td>
+										<td style="width:100px;text-align:right;">{{ 5th }}</td>
+									</tr>
+								</tbody>
+							</table>
+
+						</div>
+
+
+						<div class="col col-6 mt-4">
+							<table id="re_tool" class="table table-bordered border-primary">
+								<tbody>
+									<tr>
+										<td colspan="1">非心臟類透視攝影 : </td>
+										<td style="width:100px;text-align:right;">{{ 4th }}</td>
+									</tr>
+									<tr>
+										<td>心臟類透視攝影 : </td>
+										<td style="width:100px;text-align:right;">{{ 3th }}</td>
+									</tr>
+									<tr>
+										<td>電腦斷層 : </td>
+										<td style="width:100px;text-align:right;">{{ 1th }}</td>
+									</tr>
+									<tr>
+										<td>核子醫學 : </td>
+										<td style="width:100px;text-align:right;">{{ 2th }}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<div class="col  col-12">
+
+
+					<ul class="list-group  " style="align-items: center; width: 100%">
+						<li id="re_tool" class="list-group-item"> <strong>劑量總和 :
+								{{ total_dose }} (mSv)</strong> &nbsp;
+						</li>
+						<li id="re_tool" class="list-group-item">
+							<div class="col col-12">
+								{% autoescape off %}
+								{{ plot_hist }}
+								{% endautoescape %}
+							</div>
+							<div class="col col-12 mt-0">
+								{% autoescape off %}
+								{{ plot_div }}
+								{% endautoescape %}
+							</div>
+						</li>
+
+					</ul>
+
+				</div>
+
+
+				<div id="text_0" class="card-body">
+					<div class="row justify-content-center">
+						<form class="" action="tool" method="get">
+							<div class="col-md-6 col-12 ">
+								<button type="submit" class="btn btn-success btn-lg">重新計算</button>
+							</div>
+						</form>
+						<button class="btn btn-info btn-lg" type="button" onclick="printpage()">
+							列印結果
+						</button>
+					</div>
+				</div>
+				<div class="col col-12" id="header_tool">
+					<h5 id="ch_read" style="text-align: center;  font-size: 1.0rem;">
+						Copyright © 2021 財團法人中華民國輻射防護協會.
+						</h3>
+				</div>
+
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

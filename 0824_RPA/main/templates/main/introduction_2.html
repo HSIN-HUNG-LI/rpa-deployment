@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+{% extends "main/base.html" %}
+{% load static %}
+{% block body_block%}
+<!-- <div id="myFirstchart-container">{{ output|safe }}</div> -->
+
+<div class="jumbotron">
+	<div class="row no-gutters">
+		<div class="card col-12">
+			<div id="background_1" class="card-header">
+				<div id="header_1">
+					<h3 id="text_1" class="row justify-content-center" style="font-size: 2.7rem;"> <strong>國民醫療輻射劑量評估系統</strong> </h3>
+				</div>
+
+				<div class="card-body">
+					<h4 id="text_0" class="row justify-content-center"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp國民劑量的輻射曝露來源有二：天然背景輻射與人造輻射，而人造游離輻射劑量中，對民眾貢獻來源最大的是來自醫療曝露(NCRP,
+						2009)。自一世紀前發現放射核種和X光，游離輻射很快地被用於醫學上，現在已被確立為醫學診斷和治療的必要工具。過去幾十年間，因醫療影像設備與成像技術快速發展，使得醫用X光成像和核子醫學成像的使用率顯著增長，無論在歐洲，美國還是台灣都有類似的增長趨勢，今年透過分析健保資料庫的醫療輻射檢查的案件數，發現台灣的平均成長率最高到達8.2%。<br></h4>
+					<h4 id="text_0" class="row justify-content-center">
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp醫療輻射類別的統計數據是衡量國家放射學與醫療水準的全球指標，因為其反應出醫療體系、放射學設備和人力配置的差異，而開發程度不同的國家，其各自醫療曝露劑量差異也很大。在一份研究統計報告比較全球醫療水準較高和較低的國家，其醫療曝露的國民平均年劑量分別為每人每年1.1和0.05 mSv (HPS, 2009)。由於不同國家的醫療曝露劑量差異很大，歐盟資助的計畫(Dose
+						DataMed)確定了這些差異的存在原因，不單是民眾醫療輻射檢查次數的差異，也來自於相同的檢查操作條件設定也不盡相同(Bly, 2011)。<br></h4>
+
+					<h4 id="text_0" class="row justify-content-center">
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp透過全民健康保險研究資料庫取得醫療作業項目頻次，若有檢查項目未涵蓋於全民健康保險研究資料庫的部分則需配合其他相關資料庫以補足。另需透過實地調查醫療作業中的醫療輻射作業檢查項目、技術條件設定、臨床實際掃描方法等資訊，計算彙整出不同類別醫療輻射的檢查項目輻射劑量，再以實地量測方式：包括射質評估、劑量輸出測量以確定劑量評估的準確性，藉由此次調查研究，了解醫療輻射造成台灣整體國民輻射劑量之情形，建立完整的國民醫療輻射劑量資料，未來亦可利用此資料評估國民醫療輻射運用的變化趨勢。<br>
+					</h4>
+				</div>
+			</div>
+		</div>
+		&nbsp
+		<div class="card col-12">
+			<div id="text_0" class="card-body " style="border-bottom: 2px solid rgb(0, 0, 0, .2); ">
+				<h4 id="text_0" class="row ">執行國民醫療輻射劑量評估調查，經過醫療院所與健保資料庫取樣後完成下列8種醫療輻射類別。共46個檢查項目劑量評估，包含檢查項目如下：</h4>
+				<div class="card-group ">
+					<div class="card col-3 ">
+						<div class="card-body ">
+							<h3 id="header_1" class=" row justify-content-lg-center ">一般傳統X光</h3>
+						</div>
+					</div>
+					<div class="card col-9">
+						<div class="card-body">
+							<h4 id="text_1" class="row">
+								包含頭頸部、胸肩部、腹部(含骨盆腔)、腎臟-輸尿管-膀胱、脊椎、四肢，共6項。</h4>
+						</div>
+					</div>
+				</div>
+				<div class="card-group ">
+					<div class="card col-3">
+						<div class="card-body ">
+							<h3 id="header_1" class=" row justify-content-lg-center ">乳房攝影</h3>
+						</div>
+					</div>
+					<div class="card col-9 ">
+						<div class="card-body ">
+							<h4 id="text_1" class="row  ">
+								包含一般乳房攝影、穿刺前攝影，共2項。</h4>
+						</div>
+					</div>
+				</div>
+
+				<div class="card-group">
+					<div class="card col-3">
+						<div class="card-body ">
+							<h3 id="header_1" class=" row justify-content-lg-center ">牙科攝影</h3>
+						</div>
+					</div>
+					<div class="card col-9">
+						<div class="card-body">
+							<h4 id="text_1" class="row ">
+								根尖周、咬翼式、咬合片、齒顎全景、測顱、顳顎關節(單側)，共6項。</h4>
+						</div>
+					</div>
+				</div>
+
+				<div class="card-group">
+					<div class="card col-3">
+						<div class="card-body ">
+							<h3 id="header_1" class=" row justify-content-lg-center ">傳統透視攝影</h3>
+						</div>
+					</div>
+					<div class="card col-9">
+						<div class="card-body">
+							<h4 id="text_1" class="row ">
+								包含靜脈注射泌尿系統造影術、下消化道攝影、上消化道攝影、食道攝影、小腸系統、子宮輸卵管造影，共6項。</h4>
+						</div>
+					</div>
+				</div>
+
+				<div class="card-group">
+					<div class="card col-3">
+						<div class="card-body ">
+							<h3 id="header_1" style="text-align: center" class=" row justify-content-lg-center ">
+								非心臟類<br>介入性透視攝影</h3>
+						</div>
+					</div>
+					<div class="card col-9">
+						<div class="card-body">
+							<h4 id="text_1" class="row ">
+								包含血管整形術、血管阻塞術、經皮穿肝膽管引流術(含修正術)、皮下穿刺腎造廔術、逆行性膽道及胰管造影，共5項。</h4>
+						</div>
+					</div>
+				</div>
+
+				<div class="card-group">
+					<div class="card col-3">
+						<div class="card-body ">
+							<h3 id="header_1" style="text-align: center" class=" row justify-content-lg-center ">
+								心臟類<br>介入性透視攝影</h3>
+						</div>
+					</div>
+					<div class="card col-9">
+						<div class="card-body">
+							<h4 id="text_1" class="row ">
+								包含一、二側心導管與冠狀動脈攝影、冠狀動脈擴張術(含血管內/心臟內異物移除術)、心室、主動脈造影、不整脈經導管燒灼術、主動脈氣球裝置術，共5項。</h4>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="card-group">
+					<div class="card col-3">
+						<div class="card-body ">
+							<h3 id="header_1" class=" row justify-content-lg-center ">電腦斷層</h3>
+						</div>
+					</div>
+					<div class="card col-9">
+						<div class="card-body">
+							<h4 id="text_1" class="row ">
+								包含頭部、頸部、胸部、上腹部、腹部(含骨盆腔)、胸部與上腹部、胸部與腹部(含骨盆腔)、骨盆、下肢、脊椎、心血管，共11項。</h4>
+						</div>
+					</div>
+				</div>
+
+				<div class="card-group">
+					<div class="card col-3">
+						<div class="card-body ">
+							<h3 id="header_1" class=" row justify-content-lg-center ">核子醫學</h3>
+						</div>
+					</div>
+					<div class="card col-9">
+						<div class="card-body">
+							<h4 id="text_1" class="row ">
+								包含全身骨骼掃描、壓力與重分佈心肌斷層灌注掃描、正子造影-全身、心室搏出分率及心室壁活動測定、全身炎症掃描，共5項。</h4>
+						</div>
+					</div>
+				</div>
+				<div id="text_1" class="card-body">
+					<div class="row justify-content-center">
+						<button class="btn btn-secondary btn-lg" type="button" onclick="printpage()">
+							另存相關資訊
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="col col-12" id="header_tool">
+				<h5 id="ch_read" style="text-align: center;  font-size: 1.0rem;">
+					Copyright © 2021 財團法人中華民國輻射防護協會.
+					</h3>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+{% extends "main/base.html" %}
+{% load static %}
+{% block body_block%}
+
+<div class="jumbotron">
+	<div class="row no-gutters">
+		<div class="card col-12">
+			<div id="background_1" class="card-header">
+				<div id="header_tool">
+					<h3 id="text_1" class="row justify-content-center" style="font-size: 2.7rem;"> <strong>國民醫療輻射劑量評估系統 - 劑量計算</strong> </h3>
+				</div>
+
+				<div class="card-body">
+					<h4 id="text_0" class="row justify-content-center">
+						即將執行國民醫療輻射劑量評估，經過醫療院所與健保資料庫取樣後完成下列8種醫療輻射類別。請在下方欄位中選擇治療的次數，即可計算相應的全身有效劑量。以下劑量評估單位皆為 &nbsp; 毫西弗(mSv)
+					</h4>
+
+				</div>
+			</div>
+		</div>
+		&nbsp;
+
+
+
+
+		<form class="" action="{% url 'main:tool' %}" method="POST">
+			{% csrf_token %}
+			<div class="accordion no-gutters" id="accordionExample">
+				<!-- 6th -->
+				<div class="card">
+					<div class="card-header" id="headingSix">
+						<h5 class="mb-0">
+							<button id="header_tool" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">一般傳統X光
+							</button>
+
+
+							<button id="modal_header" class="btn btn-light btn-lg" type="button" data-toggle="modal" data-target="#myModal_6">
+								<strong> <u>說明</u> </strong>
+							</button>
+							<div class="modal fade" id="myModal_6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-dialog ">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+												&times;
+											</button>
+										</div>
+										<div class="modal-body">
+											<h3 id="modal_header"> <b>一般傳統X光</b> </h3>
+											<h4 id="modal_1">一般傳統X光原理為，利用X光在穿透人體組織器官時，會因為組織器官之間密度不同，導致各組織器官與X光作用程度有所差異，將這個差異轉換成灰階來表示，便是我們平常看到的X光影像。密度愈高的組織器官，X光愈無法穿透，影像上呈現白色，例如骨頭；密度愈低的組織器官，X光愈容易穿透，影像上呈現黑色，例如肺臟。</h4>
+											<h4 id="modal_1">一般傳統X光檢查項目大致可分為頭頸部X光、胸肩部X光、腹骨盆腔X光、泌尿系統X光、脊椎X光、四肢X光和其他項目X光共7大類，細分則可分成30餘種檢查序列。根據檢查部位厚薄程度、病患體型、病患檢查時的配合程度，及X光機上設定的參數等等因素，影響病患做此項檢查時所獲得的劑量。</h4>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">關閉
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+						</h5>
+					</div>
+
+					<div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+						<div class="card-body">
+							<div class="row">
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="6_1"><strong>&nbsp;頭頸部&nbsp;
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+														109年 100筆資料的計算結果
+														">(
+															0.04
+															mSv)
+														</a>
+
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="6_1" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="6_2"><strong>&nbsp;胸肩部&nbsp;
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+												109年 100筆資料的計算結果
+												">(
+															0.13
+															mSv)
+														</a>
+
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="6_2" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="6_3"><strong>&nbsp;腹部(含骨盆腔)&nbsp;
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+												109年 100筆資料的計算結果
+												">(
+															0.92
+															mSv)
+														</a>
+
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="6_3" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="6_4"><strong>&nbsp;
+													腎臟-輸尿管-膀胱
+													&nbsp;
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+												109年 100筆資料的計算結果
+												">(
+															0.38
+															mSv)
+														</a>
+
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="6_4" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="6_5"><strong>&nbsp;
+													脊椎
+													&nbsp;
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+												109年 100筆資料的計算結果
+												">(
+															1.15
+															mSv)
+														</a>
+
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="6_5" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="6_6"><strong>&nbsp;
+													四肢
+													&nbsp;
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+												109年 100筆資料的計算結果
+												">(
+															0.003
+															mSv)
+														</a>
+
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="6_6" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 7th -->
+				<div class="card">
+					<div class="card-header" id="headingSeven">
+						<h5 class="mb-0">
+							<button id="header_tool" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">乳房攝影
+							</button>
+
+							<button id="modal_header" class="btn btn-light btn-lg" type="button" data-toggle="modal" data-target="#myModal_7">
+								<strong> <u>說明</u> </strong>
+							</button>
+							<div class="modal fade" id="myModal_7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-dialog ">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+												&times;
+											</button>
+										</div>
+										<div class="modal-body">
+											<h3 id="modal_header"> <b>乳房攝影</b> </h3>
+											<h4 id="modal_1">
+												乳房攝影術(Mammography)為將一般X光應用在乳房的檢查技術。根據乳房厚度、脂肪和乳腺比例，選擇使用不同能量的X光照射，以呈現出最適當的影像灰階。女性乳癌發生率名列全台十大癌症排行榜上，因此早期診斷早期治療為重要方針；而乳房攝影術可以讓我們在腫瘤發展成可觸摸大小前，提早發現腫瘤的存在，所以此項技術對於篩檢出早期乳癌扮演重要的角色。在台灣，政府也有補助45歲以上至未滿70歲的女性，每兩年一次乳房攝影檢查；以及40歲以上至未滿45歲，但具有乳癌家族史的女性，每兩年一次乳房攝影檢查。
+											</h4>
+											<h4 id="modal_1">乳房攝影術檢查項目可分為兩大類，分別為一般乳房攝影和穿刺前攝影，再根據左右乳房、照射角度不同，可細分為8種檢查序列。 依據乳房的厚薄程度、照射角度、病患檢查時的配合程度，及X光機上設定的參數等等因素，影響病患做此項檢查時所獲得的劑量。</h4>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">關閉
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</h5>
+					</div>
+
+					<div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+						<div class="card-body">
+							<div class="row">
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="7_1"><strong>&nbsp;
+													一般乳房攝影
+													&nbsp;
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+											109年 100筆資料的計算結果
+											">(
+															0.39
+															mSv)
+														</a>
+
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="7_1" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="7_2"><strong>&nbsp;
+													穿刺前攝影
+													&nbsp;
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+											109年 100筆資料的計算結果
+											">(
+															0.59
+															mSv)
+														</a>
+
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="7_2" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 8th -->
+				<div class="card">
+					<div class="card-header" id="headingEight">
+						<h5 class="mb-0">
+							<button id="header_tool" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">牙科攝影
+							</button>
+
+							<button id="modal_header" class="btn btn-light btn-lg" type="button" data-toggle="modal" data-target="#myModal_8">
+								<strong> <u>說明</u> </strong>
+							</button>
+							<div class="modal fade" id="myModal_8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-dialog ">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+												&times;
+											</button>
+										</div>
+										<div class="modal-body">
+											<h3 id="modal_header"> <b>
+													牙科X光檢查
+												</b> </h3>
+											<h4 id="modal_1">
+												牙科的X光檢查是牙醫師們進行診斷的利器，因為口腔內的組織大部分都是肉眼無法直接觀測到的，所以可以利用對物質有穿透性的X光，來觀測口腔內牙齒及周圍組織的情況。若是可以清楚地觀察到牙齒、上下顎骨以及周圍的組織，就能大大地幫助牙醫師進行診斷，讓後續的治療或是矯正更加精確。因為X光對不同密度的物質有不同的穿透能力，可以很好的分辨出牙齒跟顎骨，因此，牙齒上的損傷就能快速的診斷出來，像是：斷牙、牙裂、水平智齒、阻生齒等。
+											</h4>
+											<h4 id="modal_1">
+												牙科X光檢查，因其成像的區域主要是在口腔這個區塊，僅占人體的一小部分，因此牙科X光的劑量是非常低的。提醒民眾在接受牙科X光檢查前，將耳環、項鍊或是其他在口腔附近的金屬飾品取下，並配合放射師或牙醫師的指示，增加X光影像的品質，減少重新照相的機會。
+											</h4>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">關閉
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+						</h5>
+					</div>
+
+					<div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+						<div class="card-body">
+							<div class="row">
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="8_1"><strong>&nbsp;
+													根尖周
+													&nbsp;
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+														109年 100筆資料的計算結果
+														">(
+															0.0039
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="8_1" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="8_2"><strong>&nbsp;
+													咬翼式
+													&nbsp;
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+														109年 100筆資料的計算結果
+														">(
+															0.0057
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="8_2" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="8_3"><strong>&nbsp;
+													咬合片
+													&nbsp;
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+														109年 100筆資料的計算結果
+														">(
+															0.0016
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="8_3" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="8_4"><strong>&nbsp;
+													齒顎全景
+													&nbsp;
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+														109年 100筆資料的計算結果
+														">(
+															0.013
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="8_4" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="8_5"><strong>&nbsp;
+													測顱
+													&nbsp;
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+														109年 100筆資料的計算結果
+														">(
+															0.017
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="8_5" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="8_6"><strong>&nbsp;
+													顳顎關節(單側)
+													&nbsp;
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+														109年 100筆資料的計算結果
+														">(
+															0.017
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="8_6" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<!-- 5th -->
+				<div class="card">
+					<div class="card-header" id="headingFive">
+						<h5 class="mb-0">
+							<button id="header_tool" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">傳統透視攝影
+							</button>
+
+
+							<button id="modal_header" class="btn btn-light btn-lg" type="button" data-toggle="modal" data-target="#myModal_5">
+								<strong> <u>說明</u> </strong>
+							</button>
+							<div class="modal fade" id="myModal_5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-dialog ">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+												&times;
+											</button>
+										</div>
+										<div class="modal-body">
+											<h3 id="modal_header"> <b>
+													傳統透視攝影
+												</b> </h3>
+											<h4 id="modal_1">
+												傳統透視檢查是一種透過注入或食入顯影劑並照射X光，將病灶呈現出來的檢查。由於顯影劑具有相較於人體組織更高的原子序，因此經由X光照射後可以在影像上與人體組織區別開來，進而使醫師觀察到異常處。該檢查適用於人體消化道 (例如：食道、大腸、小腸、胃……)、泌尿道 (腎臟、輸尿管、膀胱)與生殖器官 (例如：子宮、輸卵管)的結構性檢查，檢查過程中會透過不同的角度或姿勢，來觀察檢查部位的各個角度，供醫師進行診斷。
+											</h4>
+											<h4 id="modal_1">
+												傳統透視檢查所造成的輻射劑量來自於X光管的輸出功率、檢查時間、受測者的體態與受測者的配合度有關；顯影劑不具有放射性，因此檢查結束後即不會再接收到來自該檢查的輻射。
+											</h4>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">關閉
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+
+						</h5>
+					</div>
+
+					<div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+						<div class="card-body">
+							<div class="row">
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="5_1"><strong>&nbsp;
+													靜脈注射泌尿系統造影術
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+														109年 100筆資料的計算結果
+														">(
+															3.0
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="5_1" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="5_2"><strong>&nbsp;
+													下消化道攝影
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+														109年 100筆資料的計算結果
+														">(
+															8.0
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="5_2" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="5_3"><strong>&nbsp;
+													上消化道攝影
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+														109年 100筆資料的計算結果
+														">(
+															6.0
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="5_3" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="5_4"><strong>&nbsp;
+													食道攝影
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+														109年 100筆資料的計算結果
+														">(
+															6.0
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="5_4" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="5_5"><strong>&nbsp;
+													小腸系統
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+														109年 100筆資料的計算結果
+														">(
+															6.0
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="5_5" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="5_6"><strong>&nbsp;
+													子宮輸卵管造影
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+														109年 100筆資料的計算結果
+														">(
+															1.20
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="5_6" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 4th -->
+				<div class="card">
+					<div class="card-header" id="headingFour">
+						<h5 class="mb-0">
+							<button id="header_tool" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">非心臟類介入性透視攝影
+							</button>
+
+
+							<button id="modal_header" class="btn btn-light btn-lg" type="button" data-toggle="modal" data-target="#myModal_4">
+								<strong> <u>說明</u> </strong>
+							</button>
+							<div class="modal fade" id="myModal_4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-dialog ">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+												&times;
+											</button>
+										</div>
+										<div class="modal-body">
+											<h3 id="modal_header"> <b>
+													非心臟類介入性透視攝影
+												</b> </h3>
+											<h4 id="modal_1">
+												非心臟類介入性透視攝影（亦稱為血管攝影，英文：Angiography）簡單來說即利用血管內導管置入法將一些特殊血管攝影用導管送到欲檢查血管的入口處，然後以自動注射器注入顯影劑，將該部位的血管顯影，並利用血管攝影X光機作一系列X光透視及照相以執行相關檢查或治療的一種特殊攝影技術。
+											</h4>
+											<h4 id="modal_1">
+												血管攝影X光機主要由X光管、影像接收器、病床和顯示器組成，所執行的檢查或治療可依照人體血管特性，分為「動脈攝影」及「靜脈攝影」，並可大致分為：血管整形術、血管阻塞術、經皮穿肝膽管引流術（含修正術）、皮下穿刺腎造廔術及逆行性膽道及胰管造影共5種檢查項目及其他40餘種項檢查序列。依據病灶處理之難易程度、病患體型及血管攝影X光機之輸出功率的不同，病患於完成相關檢查或治療後所獲得的輻射劑量將存在差異。
+											</h4>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">關閉
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+
+
+						</h5>
+					</div>
+
+					<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+						<div class="card-body">
+							<div class="row">
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="4_1"><strong>&nbsp;
+													血管整形術
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+													109年 100筆資料的計算結果
+													">(
+															0.087
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="4_1" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="4_2"><strong>&nbsp;
+													血管阻塞術
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+													109年 100筆資料的計算結果
+													">(
+															29.43
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="4_2" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="4_3"><strong>&nbsp;
+													經皮穿肝膽管引流術
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+													109年 100筆資料的計算結果
+													">(
+															7.65
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="4_3" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="4_4"><strong>&nbsp;
+													皮下穿刺腎造廔術
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+													109年 100筆資料的計算結果
+													">(
+															5.63
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="4_4" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="4_5"><strong>&nbsp;
+													逆行性膽道及胰管造影
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+													109年 100筆資料的計算結果
+													">(
+															4.02
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="4_5" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 3th -->
+				<div class="card">
+					<div class="card-header" id="headingThree">
+						<h5 class="mb-0">
+							<button id="header_tool" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">心臟類介入性透視攝影
+							</button>
+
+
+							<button id="modal_header" class="btn btn-light btn-lg" type="button" data-toggle="modal" data-target="#myModal_3">
+								<strong> <u>說明</u> </strong>
+							</button>
+							<div class="modal fade" id="myModal_3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-dialog ">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+												&times;
+											</button>
+										</div>
+										<div class="modal-body">
+											<h3 id="modal_header"> <b>
+													心臟類介入性透視攝影
+												</b> </h3>
+											<h4 id="modal_1">
+												心臟類介入性透視攝影檢查（亦稱為心導管檢查，英文：Cardiac Interventional
+												Fluoroscopy）是利用X光透過人體部位，並在具有特殊感光材質的螢光屏上成像的原理，進行動態即時掃描心臟的檢查過程。心導管檢查是利用特製的不透光導管，經由大腿股動脈或手腕的週邊動脈進行穿刺，再將導管伸入心臟的血管內，然後注入顯影劑，再利用X光的透視攝影，來檢視心臟血管的血流狀況、病變位置及其嚴重程度的一項檢查，是目前診斷心臟冠狀動脈疾病最準確的一種方法。
+											</h4>
+											<h4 id="modal_1">
+												心導管檢查最主要的目的在於評估心臟功能、確立心臟疾病的診斷、利用心導管技術來進行治療，以及追蹤治療效果和建立外科手術的評估。心導管檢查的適應症可大致分為診斷與治療兩種，其中診斷包含：動脈及心室攝影、電氣生理檢查等，而治療包含：冠狀動脈擴張術、主動脈氣球擴張術及心律不整經導管燒灼術等，共計6類檢查項目，25項健保序列。
+											</h4>
+											<h4 id="modal_1">
+												心導管檢查通常是診斷和治療同步進行的，因而檢查時間相較於一般透視攝影檢查更長，導致整體劑量值略高於其他檢查。心導管檢查的劑量值除了與檢查時間相關外，還受到病灶處理之難易程度、病患體型及透視攝影X光機之輸出功率的影響，因此各病患於完成相關檢查或治療後所獲得的輻射劑量將存在差異。
+											</h4>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">關閉
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+
+
+						</h5>
+					</div>
+
+					<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+						<div class="card-body">
+							<div class="row">
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="3_1"><strong>&nbsp;
+													一、二側心導管與冠狀動脈攝影
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+													109年 100筆資料的計算結果
+													">(
+															12.71
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="3_1" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="3_2"><strong>&nbsp;
+													冠狀動脈擴張術
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+													109年 100筆資料的計算結果
+													">(
+															54.35
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="3_2" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="3_3"><strong>&nbsp;
+													心室、主動脈造影
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+													109年 100筆資料的計算結果
+													">(
+															5.20
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="3_3" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="3_4"><strong>&nbsp;
+													不整脈經導管燒灼術
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+													109年 100筆資料的計算結果
+													">(
+															4.56
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="3_4" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="3_5"><strong>&nbsp;
+													主動脈氣球裝置術
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+													109年 100筆資料的計算結果
+													">(
+															69.66
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="3_5" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 1th -->
+				<div class="card">
+					<div class="card-header" id="headingOne">
+						<h5 class="mb-0">
+							<button id="header_tool" class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">電腦斷層
+							</button>
+
+
+							<button id="modal_header" class="btn btn-light btn-lg" type="button" data-toggle="modal" data-target="#myModal_1">
+								<strong> <u>說明</u> </strong>
+							</button>
+							<div class="modal fade" id="myModal_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-dialog ">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+												&times;
+											</button>
+										</div>
+										<div class="modal-body">
+											<h3 id="modal_header"> <b>
+													電腦斷層攝影
+												</b> </h3>
+											<h4 id="modal_1">
+												電腦斷層攝影是一種結合X光與電腦科技的診斷工具，利用無數的Ｘ光射束穿透人體取得影像，再由電腦組成二度空間影像，以觀察身體橫切面的影像，也可再進一步重組成精細的3D立體影像。
+											</h4>
+											<h4 id="modal_1">
+												電腦斷層攝影對於頭部、耳鼻喉、胸腔、腹部、骨盆腔、脊椎、骨關節是很好的診斷工具，幾乎全身各部位都可用電腦斷層攝影來檢查，許多腫瘤，例如：肺、肝、胰臟腫瘤，都能夠藉由這個檢查來確定位置及測量大小，對周圍組織的侵犯程度亦能提供重要的訊息。用在創傷的病人身上，電腦斷層可以快速診斷出大腦、肝臟、脾臟、腎臟等器官的傷害情形。
+											</h4>
+											<h4 id="modal_1">
+												電腦斷層攝影檢查本身除須暴露輻射(X光)線外，並不會有副作用，單次檢查的輻射劑量並不會對人體造成危害，而影響輻射劑量的因素有照射X光射束設定、單次總橫切面數、單次照射Ｘ光時間、病人體型等…。
+											</h4>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">關閉
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+
+						</h5>
+					</div>
+
+					<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+						<div class="card-body col-12">
+							<div class="row">
+
+								<div class="col-12">
+									<div class="card col-12">
+
+										<div id="card_body_1" class="card-body col-12">
+											<h5 id="header_2" class="card-title">頭頸部</h5>
+											<div class="row">
+
+												<div class="col col-lg-6 col-12">
+													<ul class="list-group col-12">
+														<li class="list-group-item">
+															<label class="input-group-text" for="1_1"><strong>&nbsp;
+																	頭部
+																	<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+																	109年 100筆資料的計算結果
+																	">(
+																			1.41
+																			mSv)
+																		</a>
+																</strong></label>
+														</li>
+														<li class="list-group-item">
+															<select class="custom-select" name="1_1" required>
+																<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+																{% for count in times_loop %}
+																<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+																{% endfor %}
+															</select>
+														</li>
+													</ul>
+												</div>
+
+												<div class="col col-lg-6 col-12">
+													<ul class="list-group col-12">
+														<li class="list-group-item">
+															<label class="input-group-text" for="1_2"><strong>&nbsp;
+																	頸部
+																	<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+																	109年 100筆資料的計算結果
+																	">(
+																			2.42
+																			mSv)
+																		</a>
+																</strong></label>
+														</li>
+														<li class="list-group-item">
+															<select class="custom-select" name="1_2" required>
+																<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+																{% for count in times_loop %}
+																<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+																{% endfor %}
+															</select>
+														</li>
+													</ul>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="col-12">
+									<div class="card col-12">
+
+										<div id="card_body_1" class="card-body col-12">
+											<h5 id="header_2" class="card-title">軀幹</h5>
+											<div class="row">
+
+												<div class="col col-lg-6 col-12">
+													<ul class="list-group col-12">
+														<li class="list-group-item">
+															<label class="input-group-text" for="1_3"><strong>&nbsp;
+																	胸部
+																	<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+																	109年 100筆資料的計算結果
+																	">(
+																			7.09
+																			mSv)
+																		</a>
+																</strong></label>
+														</li>
+														<li class="list-group-item">
+															<select class="custom-select" name="1_3" required>
+																<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+																{% for count in times_loop %}
+																<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+																{% endfor %}
+															</select>
+														</li>
+													</ul>
+												</div>
+
+												<div class="col col-lg-6 col-12">
+													<ul class="list-group col-12">
+														<li class="list-group-item">
+															<label class="input-group-text" for="1_4"><strong>&nbsp;
+																	上腹部
+																	<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+																	109年 100筆資料的計算結果
+																	">(
+																			8.12
+																			mSv)
+																		</a>
+																</strong></label>
+														</li>
+														<li class="list-group-item">
+															<select class="custom-select" name="1_4" required>
+																<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+																{% for count in times_loop %}
+																<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+																{% endfor %}
+															</select>
+														</li>
+													</ul>
+												</div>
+
+												<div class="col col-lg-6 col-12">
+													<ul class="list-group col-12">
+														<li class="list-group-item">
+															<label class="input-group-text" for="1_5"><strong>&nbsp;
+																	腹部(含骨盆腔)
+																	<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+																	109年 100筆資料的計算結果
+																	">(
+																			16.31
+																			mSv)
+																		</a>
+																</strong></label>
+														</li>
+														<li class="list-group-item">
+															<select class="custom-select" name="1_5" required>
+																<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+																{% for count in times_loop %}
+																<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+																{% endfor %}
+															</select>
+														</li>
+													</ul>
+												</div>
+
+												<div class="col col-lg-6 col-12">
+													<ul class="list-group col-12">
+														<li class="list-group-item">
+															<label class="input-group-text" for="1_6"><strong>&nbsp;
+																	胸部與上腹部
+																	<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+																	109年 100筆資料的計算結果
+																	">(
+																			10.83
+																			mSv)
+																		</a>
+																</strong></label>
+														</li>
+														<li class="list-group-item">
+															<select class="custom-select" name="1_6" required>
+																<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+																{% for count in times_loop %}
+																<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+																{% endfor %}
+															</select>
+														</li>
+													</ul>
+												</div>
+
+												<div class="col col-lg-6 col-12">
+													<ul class="list-group col-12">
+														<li class="list-group-item">
+															<label class="input-group-text" for="1_7"><strong>&nbsp;
+																	胸部與腹部(含骨盆腔)
+																	<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+																	109年 100筆資料的計算結果
+																	">(
+																			22.1
+																			mSv)
+																		</a>
+																</strong></label>
+														</li>
+														<li class="list-group-item">
+															<select class="custom-select" name="1_7" required>
+																<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+																{% for count in times_loop %}
+																<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+																{% endfor %}
+															</select>
+														</li>
+													</ul>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="col-12">
+									<div class="card col-12">
+
+										<div id="card_body_1" class="card-body col-12">
+											<h5 id="header_2" class="card-title"> 其他 </h5>
+											<div class="row">
+
+												<div class="col col-lg-6 col-12">
+													<ul class="list-group col-12">
+														<li class="list-group-item">
+															<label class="input-group-text" for="1_8"><strong>&nbsp;
+																	骨盆
+																	<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+																	109年 100筆資料的計算結果
+																	">(
+																			7.46
+																			mSv)
+																		</a>
+																</strong></label>
+														</li>
+														<li class="list-group-item">
+															<select class="custom-select" name="1_8" required>
+																<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+																{% for count in times_loop %}
+																<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+																{% endfor %}
+															</select>
+														</li>
+													</ul>
+												</div>
+
+												<div class="col col-lg-6 col-12">
+													<ul class="list-group col-12">
+														<li class="list-group-item">
+															<label class="input-group-text" for="1_9"><strong>&nbsp;
+																	下肢
+																	<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+																	109年 100筆資料的計算結果
+																	">(
+																			3.47
+																			mSv)
+																		</a>
+																</strong></label>
+														</li>
+														<li class="list-group-item">
+															<select class="custom-select" name="1_9" required>
+																<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+																{% for count in times_loop %}
+																<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+																{% endfor %}
+															</select>
+														</li>
+													</ul>
+												</div>
+
+												<div class="col col-lg-6 col-12">
+													<ul class="list-group col-12">
+														<li class="list-group-item">
+															<label class="input-group-text" for="1_10"><strong>&nbsp;
+																	脊椎
+																	<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+																	109年 100筆資料的計算結果
+																	">(
+																			3.22
+																			mSv)
+																		</a>
+																</strong></label>
+														</li>
+														<li class="list-group-item">
+															<select class="custom-select" name="1_10" required>
+																<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+																{% for count in times_loop %}
+																<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+																{% endfor %}
+															</select>
+														</li>
+													</ul>
+												</div>
+
+												<div class="col col-lg-6 col-12">
+													<ul class="list-group col-12">
+														<li class="list-group-item">
+															<label class="input-group-text" for="1_11"><strong>&nbsp;
+																	心血管
+																	<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+																	109年 100筆資料的計算結果
+																	">(
+																			20.09
+																			mSv)
+																		</a>
+																</strong></label>
+														</li>
+														<li class="list-group-item">
+															<select class="custom-select" name="1_11" required>
+																<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+																{% for count in times_loop %}
+																<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+																{% endfor %}
+															</select>
+														</li>
+													</ul>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 2th -->
+				<div class="card">
+					<div class="card-header" id="headingTwo">
+						<h5 class="mb-0">
+							<button id="header_tool" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">核子醫學
+							</button>
+
+
+
+							<button id="modal_header" class="btn btn-light btn-lg" type="button" data-toggle="modal" data-target="#myModal_2">
+								<strong> <u>說明</u> </strong>
+							</button>
+							<div class="modal fade" id="myModal_2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-dialog ">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+												&times;
+											</button>
+										</div>
+										<div class="modal-body">
+											<h3 id="modal_header"> <b>
+													核子醫學
+												</b> </h3>
+											<h4 id="modal_1">
+												核子醫學檢查是一種使用人體代謝機制的性質而進行的檢查，將具有微量放射性的藥物注射於人體內，經由血液循環，將藥物運輸到特定的區域，根據不同細胞或組織對於藥物的吸收特性，使藥物短暫停留於特定區域中。由於藥物具有放射性，因此輻射會從人體內釋出，透過儀器攔截這些輻射，經由電腦的計算與處理，組成供醫生進行診斷的影像。
+											</h4>
+											<h4 id="modal_1">
+												核子醫學檢查目前普遍用於癌症的偵測，由於癌症相較於正常細胞有更高的藥物攝取，因此可以透過核醫影像辨別出癌症的位置，以利於醫師進行下一步的治療規劃。核子醫學檢查所造成的輻射劑量會受到使用的藥物以及其多寡所影響，受測者若執行完該檢查後，可以透過多喝水的方式，加速藥物代謝並排出於人體外，便可以減少藥物輻射對於人體的影響。
+											</h4>
+
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">關閉
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</h5>
+					</div>
+
+					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+						<div class="card-body">
+							<div class="row">
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="2_1"><strong>&nbsp;
+													全身骨骼掃描
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+																109年 100筆資料的計算結果
+																">(
+															5.27
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="2_1" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="2_2"><strong>&nbsp;
+													壓力與重分佈心肌斷層灌注掃描
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+																109年 100筆資料的計算結果
+																">(
+															10.36
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="2_2" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="2_3"><strong>&nbsp;
+													全身正子造影
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+																109年 100筆資料的計算結果
+																">(
+															16.55
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="2_3" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="2_4"><strong>&nbsp;
+													心室搏出分率及心室壁活動測定
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+																109年 100筆資料的計算結果
+																">(
+															3.7
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="2_4" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+								<div class="col col-lg-6 col-12">
+									<ul class="list-group col-12">
+										<li class="list-group-item">
+											<label class="input-group-text" for="2_5"><strong>&nbsp;
+													全身炎症掃描
+													<a id="tooltip" href="#" class="tooltip-test" data-toggle="tooltip" title="
+																109年 100筆資料的計算結果
+																">(
+															11.1
+															mSv)
+														</a>
+												</strong></label>
+										</li>
+										<li class="list-group-item">
+											<select class="custom-select" name="2_5" required>
+												<option selected value="0">&nbsp;&nbsp;選擇照射次數</option>
+												{% for count in times_loop %}
+												<option value="{{count}}">&nbsp;&nbsp;{{count}}</option>
+												{% endfor %}
+											</select>
+										</li>
+									</ul>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+				<div class=" no-gutters">
+					<div class="card col-lg-12">
+						<div class="card-header">
+							<div id="text_0" class="card-body">
+								<h4 id="text_0" class="row justify-content-center">經過醫療院所與健保資料庫取樣後，完成上述8種醫療輻射類別。
+									確認51個檢查項目劑量評估之後，即可按下送出並計算鍵：
+								</h4>
+								<div class="row justify-content-center" style="text-align: center ">
+
+									<div class="col-md-6 col-12 ">
+										<button type="submit" class="btn btn-success btn-lg" >
+											送出並計算 </button>
+									</div>
+									<!-- <div class="col-md-6 col-12 justify-content-center" >
+										<button type="submit" class="btn btn-outline-secondary"id="sub" style="background: #DCDCDC;" >重新計算</button>
+									</div> -->
+								</div>
+							</div>
+
+
+
+							<div class="col col-12" id="header_tool">
+								<h5 id="ch_read" style="text-align: center;  font-size: 1.0rem;">
+									Copyright © 2021 財團法人中華民國輻射防護協會.
+									</h3>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+		</form>
+	</div>
+	{% endblock %}

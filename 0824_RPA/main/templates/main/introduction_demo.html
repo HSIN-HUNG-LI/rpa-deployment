@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+{% extends "main/base.html" %}
+{% load static %}
+    {% block body_block%}
+	<div class="container">
+		<div class="jumbotron">
+			<script type="text/javascript">
+					$(function () {
+					 $('[data-toggle="tooltip"]').tooltip()
+				 })
+
+			</script>
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+  Tooltip on top
+</button>
+
+
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+  Tooltip on right
+</button>
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
+  Tooltip on bottom
+</button>
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+  Tooltip on left
+</button>
+				<p></p>
+
+				<h4> <b>1.文獻說明</b> ：使用滑鼠點擊後另開新分頁，用於提供資料量較大的文件，供使用者閱讀，以PDF檔案型式提供即可。</h4>
+				<p  id="intro_text" >Testing for United States Environmental Protection Agency</p>
+				<a target="_blank" href="https://www.epa.gov/radtown/radioactive-fallout-nuclear-weapons-testing">- more info (PDF)</a>
+				<p></p>
+				<a target="_blank" href="http://hps.org/documents/airport_screening_fact_sheet.pdf">screening machine (PDF)</a>
+				<p><br></p>
+
+				<h4><b>2.名詞解釋 </b>  :滑鼠移動到該處時會自動出現說明小視窗。</h4>
+				<a href="#" class="tooltip-test" data-toggle="tooltip" title="A radiation worker is an individual whose job assignment requires work on, with, or in the proximity of radiation producing machines or radioactive materials and has the potential of being exposed to at least 100 mrem a year from occupational sources">radiation worker</a>.
+				<h6>Bottom 小視窗 </h6>
+				<a href="#" data-toggle="tooltip" data-placement="bottom" title="A radiation worker is an individual whose job assignment requires work on, with, or in the proximity of radiation producing machines or radioactive materials and has the potential of being exposed to at least 100 mrem a year from occupational sources">radiation worker</a>.
+
+
+				<h6>按钮小視窗</h6>
+				<button type="button" class="btn btn-default" data-toggle="tooltip"  title="A radiation worker is an individual whose job assignment requires work on, with, or in the proximity of radiation producing machines or radioactive materials and has the potential of being exposed to at least 100 mrem a year from occupational sources"> radiation worker</button>
+				<p> <br> </p>
+
+				<h4><b>3.簡易說明 </b>  :使用滑鼠點擊後會彈出說明視窗。</h4>
+
+				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+					水吸收劑量率標準
+				</button>
+				<!-- 模态框（Modal） -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									&times;
+								</button>
+								<!-- <h4 class="modal-title" id="myModalLabel">
+									<b>水吸收劑量率標準</b>
+
+								</h4> -->
+							</div>
+							<div class="modal-body">
+								鈷-60 加馬射線水吸收劑量率校正系統
+								<h4> <b>(1) 游離腔量測法</b> </h4>
+								使用鈷-60加馬射源、空氣游離腔與水假體，建立水吸收劑量率校正系統。其量測原理是依據水吸收劑量定義，配合布拉格-戈雷空腔原理 (Bragg-Gray cavity theory)，測定游離腔空腔中，不帶電荷之輻射與空氣作用，於單位質量產生的游離電荷，根據Ｗ值(33.97 eV/ion)將電量轉換為能量，並考慮干擾與環境修正，透過空氣和水的轉換因子，標定出校正場參考點(水面下5 cm)的水吸收劑量率。
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">關閉
+								</button>
+								<!-- <button type="button" class="btn btn-primary">
+									提交更改
+								</button> -->
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal -->
+			</div>
+
+		</div>
+	</div>
+	<script>
+	$(function () { $('.tooltip-show').tooltip('show');});
+	$(function () { $('.tooltip-show').on('show.bs.tooltip', function () {
+		alert("Alert message on show");
+	})});
+	</script>
+
+{% endblock %}

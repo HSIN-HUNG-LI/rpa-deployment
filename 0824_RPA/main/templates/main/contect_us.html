@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+{% extends "main/base.html" %}
+{% load static %}
+{% block body_block%}
+<script>
+	//宣告預設表單內容為空 （你想要的話也可以加東西）
+	var initSubject = '',
+		initBody = '';
+
+	//按下傳送按鈕後執行
+	function submitHandler() {
+		var to = "tim131lee@gapp.nthu.edu.tw";
+		var name = nameText.value;
+		var email = emailText.value;
+		var tel = telText.value;
+		var subject = subText.value;
+		var body = "" + bodyText.value + '%0A%0A%0A';
+		body += "From：" + nameText.value + '%0A';
+		body += "Email：" + emailText.value + '%0A';
+		body += "Tel：" + telText.value;
+		mailTo.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
+		mailTo.click();
+	}
+
+	function init() {
+		subText.value = initSubject;
+		toText.value = initTo;
+		bodyText.value = initBody;
+	}
+</script>
+
+<div class="jumbotron">
+	<div class="row no-gutters">
+
+		<div class="card col-12">
+			<div id="background_1" class="card-header">
+				<div id="header_1">
+					<h3 id="text_1" class="row justify-content-md-center" style="font-size: 2.7rem;"> <strong>聯絡我們</strong> </h3>
+				</div>
+
+				<div class="card-body">
+					<h4 id="text_0" class="row justify-content-md-center"style="text-align:center;">
+						請將您的寶貴意見以填寫訊息的方式送出，我們將於工作日由專人以郵件回復您的問題<br>
+						地址：新竹市東區光復路二段295號15樓之一<br>
+						電話：03-5722224<br>
+						Email：rpa@ms9.hinet.net<br>
+					</h4>
+				</div>
+			</div>
+		</div>
+		&nbsp;
+		<!-- <form class="col col-12" enctype="text/plain" accept-charset="utf-8">
+			<div class="card">
+				<div class="card-header">
+					<p id="header_1">個人資訊</p>
+				</div>
+				<div class="card-body justify-content-md-center">
+					<div class="row col-12 justify-content-md-center">
+
+						<div class="input-group col col-lg-6 col-sm-12">
+							<input id="nameText" name="Name" type="text" class="form-control" placeholder="姓名(name)" aria-label="Username" aria-describedby="basic-addon1" required>
+						</div>
+						<div class="input-group col col-lg-6 col-sm-12">
+							<input id="telText" name="Phone" type="tel" class="form-control" placeholder="電話(phone)" aria-label="Userphone" aria-describedby="basic-addon1" required>
+						</div>
+						<p></p>
+						<div class="input-group col-12">
+							<input id="emailText" type="email" name="Email" class="form-control" placeholder="Your Email" aria-describedby="basic-addon1" required>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-header">
+					<p id="header_1">留言資訊</p>
+				</div>
+				<div class="card-body">
+					<div class="input-group col col-lg-12 col-sm-12">
+						<input id="subText" type="text" name="Subject" rows="2" class="form-control" placeholder="主旨(subject)" aria-describedby="basic-addon1" required>
+					</div>
+					<div class="input-group">
+						<textarea id="bodyText" name="your-message" class="form-control" aria-label="With textarea" aria-required="true" aria-invalid="false" placeholder="你的訊息(Your Message)" rows="10" required></textarea>
+					</div>
+					<div>
+						<input class="btn btn-light btn-lg" type="button" value="送出訊息" onclick="submitHandler()">
+						<a id="mailTo"></a>
+					</div>
+
+				</div>
+			</div>
+
+
+		</form> -->
+
+	</div>
+</div>
+{% endblock %}
